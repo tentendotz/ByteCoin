@@ -13,7 +13,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var currencyPicker: UIPickerView!
     
-    let currencyArray = ["AUD", "BRL","CAD","CNY","EUR","GBP","HKD","IDR","ILS","INR","JPY","MXN","NOK","NZD","PLN","RON","RUB","SEK","SGD","USD","ZAR"]
+    var coinManager = CoinManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +31,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return currencyArray.count
+        return coinManager.currencyArray.count
     }
 
 
 //MARK: - UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return currencyArray[row]
+        return coinManager.currencyArray[row]
+        coinManager.getCoinPrice(for: selectedCurrency)
     }
 
 }
