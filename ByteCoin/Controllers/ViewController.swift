@@ -55,5 +55,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             self.bitcoinLabel.text = currency
         }
     }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
 
 }

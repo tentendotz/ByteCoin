@@ -9,7 +9,7 @@ import Foundation
 
 protocol CoinManagerDelegate {
     func didUpdatePrice(_ coinManager: CoinManager, price: String, currency: String)
-
+    func didFailWithError(error: Error)
 }
 
 struct CoinManager {
@@ -29,7 +29,7 @@ struct CoinManager {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
-                    print(error!)
+                    self.delegate?.didFailWithError(error: error!)
                     return
                 }
                 if let safeData = data {
@@ -51,7 +51,7 @@ struct CoinManager {
             return lastPrice
             
         } catch {
-            print(error)
+            delegate?.didFailWithError(error: error)
             return nil
         }
     }
