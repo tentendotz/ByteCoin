@@ -1,7 +1,7 @@
-# ByteCoin
+ByteCoin
+========
 
 This App is the base of what I learned from Dr. Angela Yu @ The App Brewery.
-
 
 ## Getting Started
 
@@ -10,4 +10,16 @@ This App is the base of what I learned from Dr. Angela Yu @ The App Brewery.
 
 1. Replace the `apiKey` property with yours in `CoinManager.swift` file.
 
----
+#### APIs Used
+
+- [CoinAPI](https://www.coinapi.io/)
+
+#### Included Topics
+
+- URL Structure
+- URLSession Class
+- Codable (Decodable & Encodable Protocol)
+- JSONDecoder Class
+- UIPickerView Class
+
+___
